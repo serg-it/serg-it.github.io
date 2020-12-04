@@ -11,7 +11,7 @@
             <div class="card-body">
                 <form onsubmit="event.preventDefault(); checkAnswer();">
                     <div class="big" id="example"></div>
-                    <input type="text" id="answer">
+                    <input type="text" id="answer" cu>
                     <input type="hidden" id="arg1">
                     <input type="hidden" id="arg2">
                     <button type="submit" id="check" autocomplete="off">Проверить</button>
@@ -30,6 +30,7 @@
                 document.getElementById('arg1').value = arg1;
                 document.getElementById('arg2').value = arg2;
                 document.getElementById('example').textContent = arg1 + ' + ' + arg2 + ' = ?';
+                document.getElementById(answer).focus();
             }
 
             function checkAnswer() {
@@ -37,6 +38,7 @@
                 let arg2 = document.getElementById('arg2').value - 0;
                 if ( arg1 + arg2 === document.getElementById('answer').value - 0 ) {
                     alert('Правильно!')
+                    genExample();
                 } else {
                     alert('Неправильно!')
                 }
